@@ -5,7 +5,7 @@ const app = express();
 const publicDirectoryPath = path.join(__dirname,'../public');
 const veiwPath = path.join(__dirname,'../templates/views');
 const partialPath = path.join(__dirname,'../templates/partials');
-
+const PORT = process.env.PORT || 3030;
 app.set('view engine','hbs')
 app.set('views',veiwPath)
 hbs.registerPartials(partialPath)
@@ -34,8 +34,8 @@ app.get('/help',(req,res)=>{
   })
 })
 
-app.listen(3000,()=>{
-  console.log('Server is up on port 3000.');
+app.listen(PORT,()=>{
+  console.log('Server is up on ${PORT}');
 })
 
 app.get('/ExpressApp', (req, res)=>{
